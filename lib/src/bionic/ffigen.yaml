@@ -4,31 +4,32 @@ output: ffigen.dart
 preamble: |
   // ignore_for_file: non_positive_array_dimension, unused_field
 sort: true
-#llvm-path:
-#  - "/usr/lib/llvm-9"
+llvm-path:
+  - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264//toolchains/llvm/prebuilt/darwin-x86_64/lib/libLLVM"
 library-imports:
   sysinfo_t: 'sysinfo_t.dart'
 headers:
   entry-points:
     - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264//toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/errno.h"
-    - "/usr/include/fcntl.h"
-    - "/usr/include/fnmatch.h"
-    - "/usr/include/fstab.h"
-    - "/usr/include/glob.h"
-    - "/usr/include/poll.h"
-    - "/usr/include/pwd.h"
-    - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264//toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdlib.h"
-    - "/usr/include/string.h"
-    - "/usr/include/syslog.h"
-    - "/usr/include/unistd.h"
-    - "/usr/include/utmp.h"
-    - "/usr/include/utmpx.h"
-    - "/usr/include/wordexp.h"
-    - "/usr/include/x86_64-linux-gnu/sys/ioctl.h"
-    - "/usr/include/x86_64-linux-gnu/sys/mman.h"
-    - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264//toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/stat.h"
-    - "/usr/include/x86_64-linux-gnu/sys/sysinfo.h"
-    - "/usr/include/x86_64-linux-gnu/sys/utsname.h"
+    - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/timespec.h"
+    - "/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/stat.h"
+
+    # - "/usr/include/fcntl.h"
+    # - "/usr/include/fnmatch.h"
+    # - "/usr/include/fstab.h"
+    # - "/usr/include/glob.h"
+    # - "/usr/include/poll.h"
+    # - "/usr/include/pwd.h"
+    # - "/usr/include/string.h"
+    # - "/usr/include/syslog.h"
+    # - "/usr/include/unistd.h"
+    # - "/usr/include/utmp.h"
+    # - "/usr/include/utmpx.h"
+    # - "/usr/include/wordexp.h"
+    # - "/usr/include/x86_64-linux-gnu/sys/ioctl.h"
+    # - "/usr/include/x86_64-linux-gnu/sys/mman.h"
+    # - "/usr/include/x86_64-linux-gnu/sys/sysinfo.h"
+    # - "/usr/include/x86_64-linux-gnu/sys/utsname.h"
 globals:
   exclude:
     - ".*"
@@ -57,9 +58,6 @@ macros:
     - "[A-Z].*"
     - "_STAT_VER"
     - "_UTSNAME_.*"
-  rename:
-    "_STAT_VER": "STAT_VER"
-    "_UTSNAME_(.*)": "UTSNAME_$1"
 enums:
   exclude:
     - ".*"
@@ -68,30 +66,12 @@ unnamed-enums:
     - "[A-Z].*"
 structs:
   include:
-    - "glob_t"
-    - "flock"
-    - "passwd"
     - "stat"
-    - "timespec"
-    - "utmpx"
-    - "utsname"
-  rename:
-    "flock": "flock_t"
-    "passwd": "passwd_t"
-    "stat": "stat_t"
-    "timespec": "timespec_t"
-    "UnnamedStruct1": "timeval_t"
-    "utmpx": "utmpx_t"
-    "utsname": "utsname_t"
 unions:
   exclude:
     - ".*"
 typedefs:
   exclude:
     - ".*"
-type-map:
-  structs:
-    'sysinfo':
-      lib: 'sysinfo_t'
-      c-type: 'sysinfo_t'
-      dart-type: 'sysinfo_t'
+#compiler-opts:
+#  - '-I/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/'
