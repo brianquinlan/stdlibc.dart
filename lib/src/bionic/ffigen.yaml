@@ -78,6 +78,7 @@ typedefs:
     - ".*"
 compiler-opts:
   - '-isystem /Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/'
+  - '-isystem /Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/'
 compiler-opts-automatic:
   macos:
     include-c-standard-library: false

@@ -85,6 +85,274 @@ class BionicLibC {
       .asFunction<int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<stat_t>)>();
 }
 
+const int E2BIG = 7;
+
+const int EACCES = 13;
+
+const int EADDRINUSE = 98;
+
+const int EADDRNOTAVAIL = 99;
+
+const int EADV = 68;
+
+const int EAFNOSUPPORT = 97;
+
+const int EAGAIN = 11;
+
+const int EALREADY = 114;
+
+const int EBADE = 52;
+
+const int EBADF = 9;
+
+const int EBADFD = 77;
+
+const int EBADMSG = 74;
+
+const int EBADR = 53;
+
+const int EBADRQC = 56;
+
+const int EBADSLT = 57;
+
+const int EBFONT = 59;
+
+const int EBUSY = 16;
+
+const int ECANCELED = 125;
+
+const int ECHILD = 10;
+
+const int ECHRNG = 44;
+
+const int ECOMM = 70;
+
+const int ECONNABORTED = 103;
+
+const int ECONNREFUSED = 111;
+
+const int ECONNRESET = 104;
+
+const int EDEADLK = 35;
+
+const int EDEADLOCK = 35;
+
+const int EDESTADDRREQ = 89;
+
+const int EDOM = 33;
+
+const int EDOTDOT = 73;
+
+const int EDQUOT = 122;
+
+const int EEXIST = 17;
+
+const int EFAULT = 14;
+
+const int EFBIG = 27;
+
+const int EHOSTDOWN = 112;
+
+const int EHOSTUNREACH = 113;
+
+const int EHWPOISON = 133;
+
+const int EIDRM = 43;
+
+const int EILSEQ = 84;
+
+const int EINPROGRESS = 115;
+
+const int EINTR = 4;
+
+const int EINVAL = 22;
+
+const int EIO = 5;
+
+const int EISCONN = 106;
+
+const int EISDIR = 21;
+
+const int EISNAM = 120;
+
+const int EKEYEXPIRED = 127;
+
+const int EKEYREJECTED = 129;
+
+const int EKEYREVOKED = 128;
+
+const int EL2HLT = 51;
+
+const int EL2NSYNC = 45;
+
+const int EL3HLT = 46;
+
+const int EL3RST = 47;
+
+const int ELIBACC = 79;
+
+const int ELIBBAD = 80;
+
+const int ELIBEXEC = 83;
+
+const int ELIBMAX = 82;
+
+const int ELIBSCN = 81;
+
+const int ELNRNG = 48;
+
+const int ELOOP = 40;
+
+const int EMEDIUMTYPE = 124;
+
+const int EMFILE = 24;
+
+const int EMLINK = 31;
+
+const int EMSGSIZE = 90;
+
+const int EMULTIHOP = 72;
+
+const int ENAMETOOLONG = 36;
+
+const int ENAVAIL = 119;
+
+const int ENETDOWN = 100;
+
+const int ENETRESET = 102;
+
+const int ENETUNREACH = 101;
+
+const int ENFILE = 23;
+
+const int ENOANO = 55;
+
+const int ENOBUFS = 105;
+
+const int ENOCSI = 50;
+
+const int ENODATA = 61;
+
+const int ENODEV = 19;
+
+const int ENOENT = 2;
+
+const int ENOEXEC = 8;
+
+const int ENOKEY = 126;
+
+const int ENOLCK = 37;
+
+const int ENOLINK = 67;
+
+const int ENOMEDIUM = 123;
+
+const int ENOMEM = 12;
+
+const int ENOMSG = 42;
+
+const int ENONET = 64;
+
+const int ENOPKG = 65;
+
+const int ENOPROTOOPT = 92;
+
+const int ENOSPC = 28;
+
+const int ENOSR = 63;
+
+const int ENOSTR = 60;
+
+const int ENOSYS = 38;
+
+const int ENOTBLK = 15;
+
+const int ENOTCONN = 107;
+
+const int ENOTDIR = 20;
+
+const int ENOTEMPTY = 39;
+
+const int ENOTNAM = 118;
+
+const int ENOTRECOVERABLE = 131;
+
+const int ENOTSOCK = 88;
+
+const int ENOTSUP = 95;
+
+const int ENOTTY = 25;
+
+const int ENOTUNIQ = 76;
+
+const int ENXIO = 6;
+
+const int EOPNOTSUPP = 95;
+
+const int EOVERFLOW = 75;
+
+const int EOWNERDEAD = 130;
+
+const int EPERM = 1;
+
+const int EPFNOSUPPORT = 96;
+
+const int EPIPE = 32;
+
+const int EPROTO = 71;
+
+const int EPROTONOSUPPORT = 93;
+
+const int EPROTOTYPE = 91;
+
+const int ERANGE = 34;
+
+const int EREMCHG = 78;
+
+const int EREMOTE = 66;
+
+const int EREMOTEIO = 121;
+
+const int ERESTART = 85;
+
+const int ERFKILL = 132;
+
+const int EROFS = 30;
+
+const int ESHUTDOWN = 108;
+
+const int ESOCKTNOSUPPORT = 94;
+
+const int ESPIPE = 29;
+
+const int ESRCH = 3;
+
+const int ESRMNT = 69;
+
+const int ESTALE = 116;
+
+const int ESTRPIPE = 86;
+
+const int ETIME = 62;
+
+const int ETIMEDOUT = 110;
+
+const int ETOOMANYREFS = 109;
+
+const int ETXTBSY = 26;
+
+const int EUCLEAN = 117;
+
+const int EUNATCH = 49;
+
+const int EUSERS = 87;
+
+const int EWOULDBLOCK = 11;
+
+const int EXDEV = 18;
+
+const int EXFULL = 54;
+
 const int INT16_MAX = 32767;
 
 const int INT16_MIN = -32768;
@@ -293,19 +561,19 @@ final class stat_t extends ffi.Struct {
   @ffi.Uint64()
   external int st_dev;
 
-  @ffi.Int()
+  @ffi.UnsignedLong()
   external int st_ino;
 
-  @ffi.Int()
+  @ffi.UnsignedShort()
   external int st_mode;
 
   @ffi.Uint32()
   external int st_nlink;
 
-  @ffi.Int()
+  @ffi.UnsignedInt()
   external int st_uid;
 
-  @ffi.Int()
+  @ffi.UnsignedInt()
   external int st_gid;
 
   @ffi.Uint64()
@@ -326,11 +594,11 @@ final class stat_t extends ffi.Struct {
   @ffi.Long()
   external int st_blocks;
 
-  external timespec st_atim;
+  external timespec_t st_atim;
 
-  external timespec st_mtim;
+  external timespec_t st_mtim;
 
-  external timespec st_ctim;
+  external timespec_t st_ctim;
 
   @ffi.UnsignedInt()
   external int __unused4;
@@ -339,8 +607,8 @@ final class stat_t extends ffi.Struct {
   external int __unused5;
 }
 
-final class timespec extends ffi.Struct {
-  @ffi.Int()
+final class timespec_t extends ffi.Struct {
+  @ffi.Long()
   external int tv_sec;
 
   @ffi.Long()
