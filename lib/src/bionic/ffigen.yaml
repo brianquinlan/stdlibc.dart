@@ -36,7 +36,7 @@ globals:
 functions:
   include:
     # errno.h
-    - "__errno_location"
+    - "__errno"
     # glob.h
     - "glob"
     - "globfree"
@@ -52,7 +52,7 @@ functions:
     # utsname.h
     - "uname"
   rename:
-    "__errno_location": "errno"
+    "__errno": "errno"
 macros:
   include:
     - "[A-Z].*"
@@ -67,11 +67,17 @@ unnamed-enums:
 structs:
   include:
     - "stat"
+  rename:
+    "stat": "stat_t"
+    "timespec": "timespec_t"
 unions:
   exclude:
     - ".*"
 typedefs:
   exclude:
     - ".*"
-#compiler-opts:
-#  - '-I/Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/'
+compiler-opts:
+  - '-isystem /Users/bquinlan/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/'
+compiler-opts-automatic:
+  macos:
+    include-c-standard-library: false

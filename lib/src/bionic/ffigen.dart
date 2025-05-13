@@ -22,6 +22,18 @@ class BionicLibC {
           lookup)
       : _lookup = lookup;
 
+  /// Returns the address of the calling thread's `errno` storage.
+  /// Non-portable and should not be used directly. Use `errno` instead.
+  ///
+  /// @private
+  ffi.Pointer<ffi.Int> errno() {
+    return _errno();
+  }
+
+  late final _errnoPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int> Function()>>('__errno');
+  late final _errno = _errnoPtr.asFunction<ffi.Pointer<ffi.Int> Function()>();
+
   int fstat(
     int __fd,
     ffi.Pointer<stat_t> __buf,
@@ -128,8 +140,6 @@ const int INT_LEAST64_MIN = -9223372036854775808;
 const int INT_LEAST8_MAX = 127;
 
 const int INT_LEAST8_MIN = -128;
-
-const int NULL = 0;
 
 const int PTRDIFF_MAX = 9223372036854775807;
 
@@ -267,8 +277,6 @@ const int UINT_LEAST64_MAX = -1;
 
 const int UINT_LEAST8_MAX = 255;
 
-const int USER_ADDR_NULL = 0;
-
 const int UTIME_NOW = 1073741823;
 
 const int UTIME_OMIT = 1073741822;
@@ -318,11 +326,11 @@ final class stat_t extends ffi.Struct {
   @ffi.Long()
   external int st_blocks;
 
-  external timespec_t st_atim;
+  external timespec st_atim;
 
-  external timespec_t st_mtim;
+  external timespec st_mtim;
 
-  external timespec_t st_ctim;
+  external timespec st_ctim;
 
   @ffi.UnsignedInt()
   external int __unused4;
@@ -331,13 +339,10 @@ final class stat_t extends ffi.Struct {
   external int __unused5;
 }
 
-/// Represents a time.
-final class timespec_t extends ffi.Struct {
-  /// Number of seconds.
+final class timespec extends ffi.Struct {
   @ffi.Int()
   external int tv_sec;
 
-  /// Number of nanoseconds. Must be less than 1,000,000,000.
   @ffi.Long()
   external int tv_nsec;
 }
