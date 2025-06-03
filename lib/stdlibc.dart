@@ -1,7 +1,9 @@
 /// Standard C Library
 library;
 
+export 'src/epoll.dart';
 export 'src/errno.dart' hide ErrnoMixin;
+export 'src/eventfd.dart';
 export 'src/fcntl.dart' hide FcntlMixin;
 export 'src/fnmatch.dart' hide FnmatchMixin;
 export 'src/fstab.dart' hide FstabMixin;

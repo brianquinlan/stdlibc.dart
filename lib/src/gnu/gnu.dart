@@ -1,7 +1,9 @@
 import 'dart:ffi' as ffi;
 
 import '../std/std.dart';
+import 'epoll.dart';
 import 'errno.dart';
+import 'eventfd.dart';
 import 'fcntl.dart';
 import 'ffigen.dart' as ffi;
 import 'glob.dart';
@@ -27,4 +29,6 @@ class GnuLibC extends StdLibC
         GnuStatMixin,
         GnuSysinfoMixin,
         GnuUnameMixin,
-        GnuUtmpxMixin {}
+        GnuUtmpxMixin,
+        GnuLinuxEpollMixin,
+        GnuLinuxEventFdMixin {}
